@@ -1,7 +1,7 @@
 #include "iterate.h"
 
-SDL_AppResult SDL_AppIterate(void *appstate)
-{
+/* This function runs once per frame, and is the heart of the program. */
+SDL_AppResult SDL_AppIterate(void *appstate) {
     AppState *state = (AppState*) appstate;
 
     SDL_SetRenderDrawColor(state->renderer, 0, 30, 120, 255);

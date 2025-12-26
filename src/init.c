@@ -3,8 +3,7 @@
 #include <SDL3_ttf/SDL_ttf.h>
 
 /* This function runs once at startup. */
-SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
-{
+SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
     AppState *state = SDL_calloc(1, sizeof(AppState));
     if (!state) {
         SDL_Log("Failed to allocate memory for AppState = %s", SDL_GetError());
