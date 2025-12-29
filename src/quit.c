@@ -1,4 +1,6 @@
-#include "quit.h"
+#include <SDL3/SDL.h>
+
+#include "state.h"
 
 /* This function runs once at shutdown. */
 void SDL_AppQuit(void *appstate, SDL_AppResult result) {

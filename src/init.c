@@ -1,6 +1,8 @@
-#include "init.h"
-#include <SDL3/SDL_video.h>
-#include <SDL3_ttf/SDL_ttf.h>
+#define SDL_MAIN_USE_CALLBACKS
+#include <SDL3/SDL_main.h>
+#include <SDL3/SDL.h>
+
+#include "state.h"
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {

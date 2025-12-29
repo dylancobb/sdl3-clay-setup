@@ -1,4 +1,6 @@
-#include "iterate.h"
+#include <SDL3/SDL.h>
+
+#include "state.h"
 
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate) {

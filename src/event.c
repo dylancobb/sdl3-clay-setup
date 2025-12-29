@@ -1,4 +1,4 @@
-#include "event.h"
+#include <SDL3/SDL.h>
 
 /* This function runs when a new event (mouse input, keypresses, etc) occurs. */
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) {
