@@ -13,4 +13,7 @@ enum FontID {
 typedef struct AppState {
     SDL_Window *window;
     Clay_SDL3RendererData rendererData;
+    bool needs_redraw;
+    bool animating;
+    Uint64 last_frame_ns;
 } AppState;

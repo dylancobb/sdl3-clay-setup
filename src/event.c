@@ -11,6 +11,8 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) {
     }
     
     if (event->type == SDL_EVENT_WINDOW_RESIZED) {
+        state->needs_redraw = true;
+
         int width, height;
         SDL_GetWindowSize(state->window, &width, &height);
         Clay_SetLayoutDimensions((Clay_Dimensions) {(float) width, (float) height});

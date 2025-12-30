@@ -88,5 +88,9 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
     Clay_Initialize(clayMemory, (Clay_Dimensions) { (float) width, (float) height }, (Clay_ErrorHandler) { HandleClayErrors });
     Clay_SetMeasureTextFunction(SDL_MeasureText, state->rendererData.fonts);
 
+    state->needs_redraw = true;
+    state->animating = false;
+    state->last_frame_ns = 0;
+
     return SDL_APP_CONTINUE;
 }
