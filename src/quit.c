@@ -11,12 +11,24 @@ void SDL_AppQuit(void *appstate, SDL_AppResult result) {
     AppState *state = appstate;
 
     if (state) {
-        if (state->renderer)
-            SDL_DestroyRenderer(state->renderer);
+        if (state->rendererData.renderer)
+            SDL_DestroyRenderer(state->rendererData.renderer);
 
         if (state->window)
             SDL_DestroyWindow(state->window);
 
+        if (state->rendererData.fonts) {
+            for(size_t i = 0; i < FONT_COUNT; i++) {
+                TTF_CloseFont(state->rendererData.fonts[i]);
+            }
+
+            SDL_free(state->rendererData.fonts);
+        }
+
+        if (state->rendererData.textEngine)
+            TTF_DestroyRendererTextEngine(state->rendererData.textEngine);
+
         SDL_free(state);
     }
+    TTF_Quit();
 }

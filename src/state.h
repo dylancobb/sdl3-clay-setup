@@ -1,9 +1,16 @@
 #pragma once
 
 #include <SDL3/SDL.h>
+#include "clay/renderer.h"
+
+enum FontID {
+    FONT_NORMAL,
+    FONT_BOLD,
+    FONT_ITALIC,
+    FONT_COUNT
+};
 
 typedef struct AppState {
     SDL_Window *window;
-    SDL_Renderer *renderer;
+    Clay_SDL3RendererData rendererData;
 } AppState;
-
