@@ -7,6 +7,7 @@
 #include "clay/clay.h"
 
 #include "state.h"
+#include "theme.h"
 
 void HandleClayErrors(Clay_ErrorData errorData) {
     SDL_Log("%s", errorData.errorText.chars);
@@ -87,6 +88,8 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
     SDL_GetWindowSize(state->window, &width, &height);
     Clay_Initialize(clayMemory, (Clay_Dimensions) { (float) width, (float) height }, (Clay_ErrorHandler) { HandleClayErrors });
     Clay_SetMeasureTextFunction(SDL_MeasureText, state->rendererData.fonts);
+
+    set_theme_dark(state);
 
     state->needs_redraw = true;
     state->animating = false;
