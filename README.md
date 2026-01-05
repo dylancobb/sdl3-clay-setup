@@ -7,9 +7,8 @@ This repo follows my blog posts ([part 1](https://dylancobb.dev/blog/clay-sdl-se
 Part 3 TODO:
 
 - [x] Extract colours to state
-- [ ] Build a busier layout
-- [ ] Add an interactive element
+- [x] Build a busier layout
+- [x] Add an interactive element
   - Light / dark mode toggle?
-- [ ] Clay debug console
-- [ ] Add custom triangle decal renderer
+- [x] Clay debug console
 - [ ] CMake

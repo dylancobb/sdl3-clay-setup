@@ -13,8 +13,9 @@ enum FontID {
 typedef struct ColorSet {
     Clay_Color background;
     Clay_Color foreground;
-    Clay_Color accent;
+    Clay_Color bar;
     Clay_Color text;
+    Clay_Color textFaded;
 } ColorSet;
 
 typedef enum Theme {
@@ -30,4 +31,5 @@ typedef struct AppState {
     bool needs_redraw;
     bool animating;
     Uint64 last_frame_ns;
+    bool debug_open;
 } AppState;
