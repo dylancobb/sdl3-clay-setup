@@ -9,6 +9,8 @@
 #include "state.h"
 #include "theme.h"
 
+#include <stdio.h>
+
 void HandleClayErrors(Clay_ErrorData errorData) {
     SDL_Log("%s", errorData.errorText.chars);
 }
@@ -58,7 +60,15 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
         return SDL_APP_FAILURE;
     }
 
-    #define FONT_PATH "resources/Fira-Code.ttf"
+    #ifdef __EMSCRIPTEN__
+    #define FONT_PATH "/resources/Fira-Code.ttf"
+    #else
+    char* basePath = (char*)SDL_GetBasePath();
+    char fontPath[1024];
+    snprintf(fontPath, sizeof(fontPath), "%sresources/Fira-Code.ttf", basePath);
+    SDL_free(basePath);
+    #define FONT_PATH fontPath
+    #endif
     
     TTF_Font* font_normal = TTF_OpenFont(FONT_PATH, 24);
     TTF_Font* font_bold   = TTF_OpenFont(FONT_PATH, 24);
